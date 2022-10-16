@@ -81,7 +81,9 @@ export const getUsersLikedMovies = createAsyncThunk(
   async (email) => {
     const {
       data: { movies },
-    } = await axios.get(`http://localhost:5000/api/user/liked/${email}`);
+    } = await axios.get(
+      `https://fakeflix.herokuapp.com/api/user/liked/${email}`
+    );
     return movies;
   }
 );
@@ -91,7 +93,7 @@ export const removeMovieFromLiked = createAsyncThunk(
   async ({ movieId, email }) => {
     const {
       data: { movies },
-    } = await axios.put("http://localhost:5000/api/user/remove", {
+    } = await axios.put("https://fakeflix.herokuapp.com/api/user/remove", {
       email,
       movieId,
     });
